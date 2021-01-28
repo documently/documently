@@ -5,11 +5,12 @@ require "purdytest"
 
 require "documently"
 require_relative "support/assertions"
+require_relative "support/factories"
 require_relative "support/macros"
 
 module Documently
   class TestCase < Minitest::Test
-    include Assertions
+    include Assertions, Factories
     extend Macros
   end
 end
