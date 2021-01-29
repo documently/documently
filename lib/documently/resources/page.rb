@@ -11,8 +11,8 @@ module Documently
       end
 
       def title
-        if title_overridden?
-          overriding_title
+        if custom_title?
+          custom_title
         elsif index?
           indexed.title
         else
@@ -62,11 +62,11 @@ module Documently
         @site.collections.include?(name)
       end
 
-      def overriding_title
+      def custom_title
         Resource::Title.new(@metadata[:title])
       end
 
-      def title_overridden?
+      def custom_title?
         @metadata.include?(:title)
       end
     end

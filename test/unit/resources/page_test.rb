@@ -9,7 +9,7 @@ module Documently
         assert_equal "About", page.title.value
       end
 
-      test "the title can be overridden by metadata" do
+      test "a custom title can be provided by metadata" do
         page = build_page(
           name: Resource::Name.new("about"),
           metadata: Resource::Metadata.new({title: "About Us"})
