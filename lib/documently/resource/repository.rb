@@ -9,20 +9,20 @@ module Documently
 
       def initialize(resources)
         @resources = resources
-          .collect { |resource| [resource.name.value, resource] }
+          .collect { |resource| [resource.name, resource] }
           .to_h
       end
 
       def find(name)
-        @resources[name.value]
+        @resources[name]
       end
 
       def include?(name)
-        @resources.include?(name.value)
+        @resources.include?(name)
       end
 
       def <<(resource)
-        @resources[resource.name.value] = resource
+        @resources[resource.name] = resource
       end
 
       def each(&block)

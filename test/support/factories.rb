@@ -1,12 +1,12 @@
 module Documently
   class TestCase < Minitest::Test
     module Factories
-      def build_site(name: Resource::Name.new("site"))
+      def build_site(name: "site")
         Resources::Site.new(name: name)
       end
 
       def build_page(
-        name: Resource::Name.new("page"),
+        name: "page",
         metadata: Resource::Metadata.empty,
         site: build_site,
         collection: nil
@@ -27,7 +27,7 @@ module Documently
       end
 
       def build_collection(
-        name: Resource::Name.new("collection"),
+        name: "collection",
         site: build_site
       )
         collection = Resources::Collection.new(name: name, site: site)

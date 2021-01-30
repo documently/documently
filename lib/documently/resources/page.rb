@@ -16,7 +16,7 @@ module Documently
         elsif index?
           indexed.title
         else
-          Resource::Title.named(@name)
+          Resource::Title.for(@name)
         end
       end
 
@@ -31,7 +31,7 @@ module Documently
       private
 
       def slug
-        Resource::Slug.named(@name)
+        Resource::Slug.for(@name)
       end
 
       def parent
@@ -55,7 +55,7 @@ module Documently
       end
 
       def site_index?
-        name.value == "index" && !collected?
+        name == "index" && !collected?
       end
 
       def collection_index?
@@ -63,7 +63,7 @@ module Documently
       end
 
       def custom_title
-        Resource::Title.new(@metadata[:title])
+        @metadata[:title]
       end
 
       def custom_title?

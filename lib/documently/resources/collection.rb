@@ -9,7 +9,7 @@ module Documently
       end
 
       def title
-        Resource::Title.named(@name)
+        Resource::Title.for(@name)
       end
 
       def permalink
@@ -19,7 +19,7 @@ module Documently
       private
 
       def slug
-        Resource::Slug.named(@name)
+        Resource::Slug.for(@name)
       end
     end
   end

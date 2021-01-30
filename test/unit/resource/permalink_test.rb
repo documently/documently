@@ -9,11 +9,10 @@ module Documently
 
       test "joins a slug" do
         permalink = Resource::Permalink.new("/posts/")
-        slug = Resource::Slug.new("example-post")
 
-        assert_equal "/posts/example-post", permalink.join(slug).value
+        assert_equal "/posts/example-post", permalink.join("example-post").value
       end
-      
+
       test "ensures that it ends with a slash" do
         with_trailing_slash = Resource::Permalink.new("/posts/")
         without_trailing_slash = Resource::Permalink.new("/posts")

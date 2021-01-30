@@ -14,7 +14,7 @@ module Documently
       end
 
       def title
-        Resource::Title.named(@name)
+        Resource::Title.for(@name)
       end
 
       def permalink

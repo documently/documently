@@ -12,7 +12,7 @@ module Documently
       end
 
       def join(slug)
-        Resource::Permalink.new(value_with_trailing_slash + slug.value)
+        Resource::Permalink.new(value_with_trailing_slash + slug)
       end
 
       def ensure_trailing_slash
