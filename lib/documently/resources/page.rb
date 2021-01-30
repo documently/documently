@@ -28,6 +28,14 @@ module Documently
         end
       end
 
+      def layout
+        if custom_layout?
+          custom_layout
+        else
+          parent.layout
+        end
+      end
+
       private
 
       def slug
@@ -35,7 +43,11 @@ module Documently
       end
 
       def parent
-        @collection || @site
+        if collected?
+          @collection
+        else
+          @site
+        end
       end
 
       def indexed
@@ -68,6 +80,14 @@ module Documently
 
       def custom_title?
         @metadata.include?(:title)
+      end
+
+      def custom_layout
+        @site.layouts.find(@metadata[:layout])
+      end
+
+      def custom_layout?
+        @metadata.include?(:layout)
       end
     end
   end

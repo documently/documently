@@ -38,6 +38,34 @@ module Documently
 
         assert_equal "/posts/", page.permalink.value
       end
+
+      test "by default uses the layout of the site" do
+        site = build_site
+        main_layout = build_layout(name: "main", site: site)
+        page = build_page(site: site)
+
+        assert_equal main_layout, page.layout
+      end
+
+      test "when in a collection uses the layout of the collection" do
+        site = build_site
+        collection = build_collection(name: "posts", site: site)
+        post_layout = build_layout(name: "post", site: site)
+        page = build_page(site: site, collection: collection)
+
+        assert_equal post_layout, page.layout
+      end
+
+      test "a custom layout can be provided by metadata" do
+        site = build_site
+        custom_layout = build_layout(name: "custom", site: site)
+        page = build_page(
+          metadata: Resource::Metadata.new({layout: "custom"}),
+          site: site
+        )
+
+        assert_equal custom_layout, page.layout
+      end
     end
   end
 end

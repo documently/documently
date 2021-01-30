@@ -1,11 +1,12 @@
 module Documently
   module Resources
     class Collection
-      attr_reader :name
+      attr_reader :name, :pages
 
-      def initialize(name:, site:)
+      def initialize(name:, site:, pages: Resource::Repository.empty)
         @name = name
         @site = site
+        @pages = pages
       end
 
       def title
@@ -14,6 +15,16 @@ module Documently
 
       def permalink
         @site.permalink.join(slug).ensure_trailing_slash
+      end
+
+      def layout
+        singularized = Inflector.singularize(@name)
+
+        if @site.layouts.include?(singularized)
+          @site.layouts.find(singularized)
+        else
+          @site.layout
+        end
       end
 
       private

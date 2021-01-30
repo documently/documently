@@ -26,14 +26,26 @@ module Documently
         page
       end
 
-      def build_collection(
-        name: "collection",
-        site: build_site
-      )
+      def build_collection(name: "collection", site: build_site)
         collection = Resources::Collection.new(name: name, site: site)
         site.collections << collection
 
         collection
+      end
+
+      def build_layout(
+        name: "layout",
+        metadata: Resource::Metadata.empty,
+        site: build_site
+      )
+        layout = Resources::Layout.new(
+          name: name,
+          metadata: metadata,
+          site: site
+        )
+        site.layouts << layout
+
+        layout
       end
     end
   end

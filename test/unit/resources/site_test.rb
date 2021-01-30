@@ -14,6 +14,13 @@ module Documently
 
         assert_equal "/", site.permalink.value
       end
+
+      test "uses the layout named 'main'" do
+        site = build_site
+        main_layout = build_layout(name: "main", site: site)
+
+        assert_equal main_layout, site.layout
+      end
     end
   end
 end
