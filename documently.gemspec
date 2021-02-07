@@ -19,6 +19,9 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.5"
 
+  spec.add_dependency "erubi", "~> 1.10"
+  spec.add_dependency "kramdown", "~> 2.3"
+  spec.add_dependency "kramdown-parser-gfm", "~> 1.1"
   spec.add_dependency "zeitwerk", "~> 2.4"
 
   spec.add_development_dependency "minitest", "~> 5.14"
