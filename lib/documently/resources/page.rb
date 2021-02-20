@@ -51,27 +51,19 @@ module Documently
       end
 
       def indexed
-        if site_index?
+        if parent == @site && @name == "index"
           @site
-        elsif collection_index?
+        elsif @site.collections.include?(name)
           @site.collections.find(@name)
         end
       end
 
       def index?
-        site_index? || collection_index?
+        !indexed.nil?
       end
 
       def collected?
         !@collection.nil?
-      end
-
-      def site_index?
-        name == "index" && !collected?
-      end
-
-      def collection_index?
-        @site.collections.include?(name)
       end
 
       def custom_title
