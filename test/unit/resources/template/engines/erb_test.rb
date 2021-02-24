@@ -40,7 +40,7 @@ module Documently
             runtime = Template::Runtime.new
 
             runtime.content = "content"
-            engine.call(source: "wrapped <%= content %>", runtime: runtime)
+            engine.call(source: "wrapped <%= yield %>", runtime: runtime)
 
             assert_equal "wrapped content", runtime.content
           end
@@ -51,7 +51,7 @@ module Documently
 
             runtime.content_for(:section, "content")
             engine.call(
-              source: "wrapped <%= content_for :section %>",
+              source: "wrapped <%= yield :section %>",
               runtime: runtime
             )
 

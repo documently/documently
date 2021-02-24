@@ -28,8 +28,7 @@ module Documently
             end
 
             def call
-              instance_eval(@code)
-              @runtime.content = @_output
+              call_with_section_yielding
             end
 
             def section(name, &block)
@@ -49,6 +48,21 @@ module Documently
             end
 
             private
+
+            def call_with_section_yielding
+              call_without_section_yielding do |section = nil|
+                if section
+                  @runtime.content_for(section)
+                else
+                  @runtime.content
+                end
+              end
+            end
+
+            def call_without_section_yielding
+              instance_eval(@code)
+              @runtime.content = @_output
+            end
 
             def capture(&block)
               saved_output = @_output
