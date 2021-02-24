@@ -7,62 +7,55 @@ module Documently
         class ERBTest < TestCase
           test "evaluates simple ERB" do
             engine = Template::Engines::ERB.new
-            flow = Template::Flow.new
-            scope = Template::Scope.new
+            runtime = Template::Runtime.new
 
-            engine.call(source: "<%= 'ERB' %>", flow: flow, scope: scope)
+            engine.call(source: "<%= 'ERB' %>", runtime: runtime)
 
-            assert_equal "ERB", flow.main
+            assert_equal "ERB", runtime.content
           end
 
           test "evaluates ERB with assigns" do
             engine = Template::Engines::ERB.new
-            flow = Template::Flow.new
-            scope = Template::Scope.new({assign: "value"})
+            runtime = Template::Runtime.new(assigns: {assign: "value"})
 
-            engine.call(source: "<%= @assign %>", flow: flow, scope: scope)
+            engine.call(source: "<%= assign %>", runtime: runtime)
 
-            assert_equal "value", flow.main
+            assert_equal "value", runtime.content
           end
 
           test "stores content in a named section" do
             engine = Template::Engines::ERB.new
-            flow = Template::Flow.new
-            scope = Template::Scope.new
+            runtime = Template::Runtime.new
 
             engine.call(
               source: "<% section :section do %>content<% end %>",
-              flow: flow,
-              scope: scope
+              runtime: runtime
             )
 
-            assert_equal "content", flow.sections[:section]
+            assert_equal "content", runtime.content_for(:section)
           end
 
           test "outputs the main content" do
             engine = Template::Engines::ERB.new
-            flow = Template::Flow.new
-            scope = Template::Scope.new
+            runtime = Template::Runtime.new
 
-            flow.main = "content"
-            engine.call(source: "wrapped <%= content %>", flow: flow, scope: scope)
+            runtime.content = "content"
+            engine.call(source: "wrapped <%= content %>", runtime: runtime)
 
-            assert_equal "wrapped content", flow.main
+            assert_equal "wrapped content", runtime.content
           end
 
           test "outputs content from a named section" do
             engine = Template::Engines::ERB.new
-            flow = Template::Flow.new
-            scope = Template::Scope.new
+            runtime = Template::Runtime.new
 
-            flow.sections[:section] = "content"
+            runtime.content_for(:section, "content")
             engine.call(
               source: "wrapped <%= content_for :section %>",
-              flow: flow,
-              scope: scope
+              runtime: runtime
             )
 
-            assert_equal "wrapped content", flow.main
+            assert_equal "wrapped content", runtime.content
           end
         end
       end

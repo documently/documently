@@ -10,12 +10,11 @@ module Documently
               Template::Engines::ERB.new,
               Template::Engines::Markdown.new
             ])
-            flow = Template::Flow.new
-            scope = Template::Scope.new
+            runtime = Template::Runtime.new
 
-            pipeline.call(source: "# <%= 'Heading' %>", flow: flow, scope: scope)
+            pipeline.call(source: "# <%= 'Heading' %>", runtime: runtime)
 
-            assert_equal "<h1 id=\"heading\">Heading</h1>\n", flow.main
+            assert_equal "<h1 id=\"heading\">Heading</h1>\n", runtime.content
           end
         end
       end

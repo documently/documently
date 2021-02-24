@@ -7,12 +7,11 @@ module Documently
         class MarkdownTest < TestCase
           test "converts the source from markdown to HTML" do
             engine = Template::Engines::Markdown.new
-            flow = Template::Flow.new
-            scope = Template::Scope.new
+            runtime = Template::Runtime.new
 
-            engine.call(source: "content", flow: flow, scope: scope)
+            engine.call(source: "content", runtime: runtime)
 
-            assert_equal "<p>content</p>\n", flow.main
+            assert_equal "<p>content</p>\n", runtime.content
           end
         end
       end

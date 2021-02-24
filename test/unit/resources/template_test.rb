@@ -14,7 +14,7 @@ module Documently
 
       test "renders with assigns" do
         template = Template.new(
-          source: "<%= @assign %>",
+          source: "<%= assign %>",
           engine: Template::Engines::ERB.new
         )
 

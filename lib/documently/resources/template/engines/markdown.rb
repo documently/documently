@@ -7,8 +7,8 @@ module Documently
             @cache = {}
           end
 
-          def call(source:, flow:, scope:)
-            flow.main = parse(source)
+          def call(source:, runtime:)
+            runtime.content = parse(source)
           end
 
           private

@@ -7,12 +7,13 @@ module Documently
       end
 
       def render(assigns = {})
-        flow = Template::Flow.new
-        scope = Template::Scope.new(assigns)
+        runtime = Template::Runtime.new(assigns: assigns)
+        render_in(runtime)
+      end
 
-        @engine.call(source: @source, flow: flow, scope: scope)
-
-        flow.main
+      def render_in(runtime)
+        @engine.call(source: @source, runtime: runtime)
+        runtime.content
       end
     end
   end

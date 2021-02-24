@@ -7,10 +7,10 @@ module Documently
             @engines = engines
           end
 
-          def call(source:, flow:, scope:)
+          def call(source:, runtime:)
             @engines.each do |engine|
-              engine.call(source: source, flow: flow, scope: scope)
-              source = flow.main
+              engine.call(source: source, runtime: runtime)
+              source = runtime.content
             end
           end
         end

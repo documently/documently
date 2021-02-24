@@ -7,12 +7,8 @@ module Documently
             @cache = {}
           end
 
-          def call(source:, flow:, scope:)
-            Evaluate.call(
-              code: compile(source),
-              flow: flow,
-              scope: scope
-            )
+          def call(source:, runtime:)
+            Evaluate.call(code: compile(source), runtime: runtime)
           end
 
           private
@@ -26,36 +22,37 @@ module Documently
               new(**kwargs).call
             end
 
-            def initialize(code:, flow:, scope:)
-              @_code = code
-              @_flow = flow
-              @_scope = scope
-              @_output = ""
+            def initialize(code:, runtime:)
+              @code = code
+              @runtime = runtime
             end
 
             def call
-              @_scope.infect(self)
-              instance_eval(@_code)
-              @_flow.main = @_output
+              instance_eval(@code)
+              @runtime.content = @_output
             end
 
             def section(name, &block)
-              @_flow.sections[name] = capture(&block)
+              @runtime.content_for(name, capture(&block))
             end
 
-            def content
-              @_flow.main
+            def method_missing(name, *args, &block)
+              if @runtime.respond_to?(name)
+                @runtime.send(name, *args, &block)
+              else
+                super
+              end
             end
 
-            def content_for(section)
-              @_flow.sections[section]
+            def respond_to_missing?(name, include_private = false)
+              @runtime.respond_to?(name) || super
             end
 
             private
 
             def capture(&block)
               saved_output = @_output
-              @_output = ""
+              @_output = String.new
 
               block.call
 
