@@ -2,10 +2,10 @@ require_relative "lib/documently/version"
 
 Gem::Specification.new do |spec|
   spec.name = "documently"
-  spec.summary = "A comprehensive toolkit for building fast websites"
+  spec.summary = "A comprehensive framework for building fast websites"
   spec.description = <<~TEXT
-    A comprehensive toolkit for building fast websites. Documently transforms a
-    directory of HTML templates, plaintext files, and assets into a parallel
+    A comprehensive framework for building fast websites. Documently transforms
+    a directory of HTML templates, plaintext files, and assets into a parallel
     directory of HTML, CSS, and JavaScript files.
   TEXT
 
