@@ -8,9 +8,9 @@ module Documently
 
       def to_s
         case @value
-        when String then "#{@name}=\"#{@value}\""
         when TrueClass then "#{@name}"
         when FalseClass then ""
+        else "#{@name}=\"#{@value}\""
         end
       end
     end
