@@ -22,6 +22,10 @@ module Documently
           @sections.include?(section)
         end
 
+        def link_to(*args)
+          Template::Helpers::Link.to(*args)
+        end
+
         def method_missing(name, *args, &block)
           if @assigns.include?(name)
             @assigns[name]
