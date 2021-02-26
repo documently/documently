@@ -14,7 +14,7 @@ module Documently
           private
 
           def compile(source)
-            @cache[source] ||= Erubi::Engine.new(source, bufvar: "@_output").src
+            @cache[source] ||= Erubi::Engine.new(source, bufvar: "@output").src
           end
 
           class Evaluate
@@ -61,17 +61,17 @@ module Documently
 
             def call_without_section_yielding
               instance_eval(@code)
-              @runtime.content = @_output
+              @runtime.content = @output
             end
 
             def capture(&block)
-              saved_output = @_output
-              @_output = String.new
+              saved_output = @output
+              @output = String.new
 
               block.call
 
-              captured_output = @_output
-              @_output = saved_output
+              captured_output = @output
+              @output = saved_output
 
               captured_output
             end
