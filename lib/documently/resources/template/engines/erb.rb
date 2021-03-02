@@ -64,11 +64,11 @@ module Documently
               @runtime.content = @output
             end
 
-            def capture(&block)
+            def capture
               saved_output = @output
               @output = String.new
 
-              block.call
+              yield
 
               captured_output = @output
               @output = saved_output
