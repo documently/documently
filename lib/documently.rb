@@ -1,3 +1,7 @@
+# stdlib
+require "date"
+
+# external
 require "erubi"
 require "kramdown"
 require "kramdown-parser-gfm"

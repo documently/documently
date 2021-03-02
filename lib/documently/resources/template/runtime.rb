@@ -26,6 +26,10 @@ module Documently
           Template::Helpers::Link.to(*args)
         end
 
+        def date(*args)
+          Template::Helpers::Date.element(*args)
+        end
+
         def method_missing(name, *args, &block)
           if @assigns.include?(name)
             @assigns[name]
