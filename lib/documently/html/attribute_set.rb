@@ -6,7 +6,7 @@ module Documently
       end
 
       def initialize(attributes)
-        @attributes = attributes.collect { |name, value|
+        @attributes = attributes.map { |name, value|
           HTML::Attribute.new(name, value)
         }
       end
@@ -16,7 +16,7 @@ module Documently
       end
 
       def to_s
-        @attributes.collect(&:to_s).join(" ")
+        @attributes.map(&:to_s).join(" ")
       end
     end
   end

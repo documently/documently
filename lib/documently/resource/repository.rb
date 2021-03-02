@@ -9,7 +9,7 @@ module Documently
 
       def initialize(resources)
         @resources = resources
-          .collect { |resource| [resource.name, resource] }
+          .map { |resource| [resource.name, resource] }
           .to_h
       end
 
