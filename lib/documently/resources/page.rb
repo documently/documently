@@ -3,11 +3,19 @@ module Documently
     class Page
       attr_reader :name
 
-      def initialize(name:, metadata:, site:, collection: nil)
+      def initialize(name:, metadata:, template:, site:, collection: nil)
         @name = name
         @metadata = metadata
+        @template = template
         @site = site
         @collection = collection
+      end
+
+      def build
+        Artifacts::Document.new(
+          name: slug,
+          content: @template.render({site: @site, page: self})
+        )
       end
 
       def title

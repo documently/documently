@@ -3,6 +3,15 @@ require "test_helper"
 module Documently
   module Resources
     class CollectionTest < TestCase
+      test "#build creates an artifact by building all the members" do
+        collection = create_collection
+        create_page(collection: collection)
+
+        artifact = collection.build
+
+        assert_equal 1, artifact.documents.count
+      end
+
       test "the title is the titlecased name" do
         collection = create_collection(name: "posts")
 

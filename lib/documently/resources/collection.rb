@@ -9,6 +9,13 @@ module Documently
         @pages = pages
       end
 
+      def build
+        Artifacts::Collection.new(
+          name: slug,
+          documents: @pages.map(&:build)
+        )
+      end
+
       def title
         Resource::Title.for(@name)
       end

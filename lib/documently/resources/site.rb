@@ -15,6 +15,13 @@ module Documently
         @layouts = layouts
       end
 
+      def build
+        Artifacts::Site.new(
+          documents: @pages.map(&:build),
+          collections: @collections.map(&:build)
+        )
+      end
+
       def title
         Resource::Title.for(@name)
       end

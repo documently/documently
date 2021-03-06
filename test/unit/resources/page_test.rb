@@ -3,6 +3,35 @@ require "test_helper"
 module Documently
   module Resources
     class PageTest < TestCase
+      test "#build creates a document by rendering the template" do
+        page = create_page(
+          template: Template.new(
+            source: "content",
+            engine: Template::Engines::Markdown.new
+          )
+        )
+
+        document = page.build
+
+        assert_equal "<p>content</p>\n", document.content
+      end
+
+      test "#build passes the site and the page to the template as assigns" do
+        site = create_site(name: "blog")
+        page = create_page(
+          name: "about",
+          template: Template.new(
+            source: "<%= site.name %> <%= page.name %>",
+            engine: Template::Engines::ERB.new
+          ),
+          site: site
+        )
+
+        document = page.build
+
+        assert_equal "blog about", document.content
+      end
+
       test "by default the title is the titlecased name" do
         page = create_page(name: "about")
 

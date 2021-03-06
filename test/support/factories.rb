@@ -8,12 +8,17 @@ module Documently
       def create_page(
         name: "page",
         metadata: Resource::Metadata.empty,
+        template: Resources::Template.new(
+          source: "content",
+          engine: Resources::Template::Engines::Text.new
+        ),
         site: create_site,
         collection: nil
       )
         page = Resources::Page.new(
           name: name,
           metadata: metadata,
+          template: template,
           site: site,
           collection: collection
         )
