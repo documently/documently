@@ -1,7 +1,7 @@
 module Documently
   module Resources
     class Page
-      attr_reader :name
+      attr_reader :name, :metadata
 
       def initialize(name:, metadata:, template:, site:, collection: nil)
         @name = name
@@ -14,7 +14,10 @@ module Documently
       def build
         Artifacts::Document.new(
           name: slug,
-          content: @template.render({site: @site, page: self})
+          content: @template.render({
+            site: Site::ViewModel.new(@site),
+            page: Page::ViewModel.new(self)
+          })
         )
       end
 

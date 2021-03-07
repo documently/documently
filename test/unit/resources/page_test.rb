@@ -16,7 +16,7 @@ module Documently
         assert_equal "<p>content</p>\n", document.content
       end
 
-      test "#build passes the site and the page to the template as assigns" do
+      test "#build passes the site and the page view models to the template as assigns" do
         site = create_site(name: "blog")
         page = create_page(
           name: "about",
