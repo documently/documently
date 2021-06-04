@@ -6,7 +6,7 @@ module Documently
       class ViewModelTest < TestCase
         test "accesses metadata with methods" do
           page = create_page(
-            metadata: Resource::Metadata.new({author: "John Smith"})
+            metadata: Resource::Metadata.new({"author" => "John Smith"})
           )
           view_model = Page::ViewModel.new(page)
 

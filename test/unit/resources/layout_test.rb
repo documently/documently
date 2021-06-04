@@ -22,7 +22,7 @@ module Documently
         custom_layout = create_layout(name: "custom", site: site)
         uses_custom_layout = create_layout(
           name: "uses_custom_layout",
-          metadata: Resource::Metadata.new({layout: "custom"}),
+          metadata: Resource::Metadata.new({"layout" => "custom"}),
           site: site
         )
 

@@ -7,8 +7,8 @@ module Documently
         end
 
         def method_missing(name, *args, &block)
-          if @page.metadata.include?(name)
-            @page.metadata[name]
+          if @page.metadata.include?(name.to_s)
+            @page.metadata[name.to_s]
           elsif @page.respond_to?(name)
             @page.public_send(name)
           else
@@ -17,7 +17,7 @@ module Documently
         end
 
         def respond_to_missing?(name, include_private = false)
-          @page.metadata.include?(name) || @page.respond_to?(name) || super
+          @page.metadata.include?(name.to_s) || @page.respond_to?(name) || super
         end
       end
     end

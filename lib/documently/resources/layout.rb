@@ -22,11 +22,11 @@ module Documently
       private
 
       def custom_layout
-        @site.layouts.find(@metadata[:layout])
+        @site.layouts.find(@metadata["layout"])
       end
 
       def custom_layout?
-        @metadata.include?(:layout)
+        @metadata.include?("layout")
       end
     end
   end

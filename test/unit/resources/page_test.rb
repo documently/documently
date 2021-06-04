@@ -41,7 +41,7 @@ module Documently
       test "a custom title can be provided by metadata" do
         page = create_page(
           name: "about",
-          metadata: Resource::Metadata.new({title: "About Us"})
+          metadata: Resource::Metadata.new({"title" => "About Us"})
         )
 
         assert_equal "About Us", page.title
@@ -89,7 +89,7 @@ module Documently
         site = create_site
         custom_layout = create_layout(name: "custom", site: site)
         page = create_page(
-          metadata: Resource::Metadata.new({layout: "custom"}),
+          metadata: Resource::Metadata.new({"layout" => "custom"}),
           site: site
         )
 
