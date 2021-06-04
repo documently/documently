@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resource
     class RepositoryTest < TestCase
       test "finds a resource by its name" do

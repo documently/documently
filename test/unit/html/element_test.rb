@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module HTML
     class ElementTest < TestCase
       test "#to_s serializes a non-void element as the opening and closing tags" do

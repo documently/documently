@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resources
     class TemplateTest < TestCase
       test "renders by evaluating the source with the engine" do

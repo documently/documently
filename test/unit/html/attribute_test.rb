@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module HTML
     class AttributeTest < TestCase
       test "#to_s serializes a string attribute as a key-value pair" do

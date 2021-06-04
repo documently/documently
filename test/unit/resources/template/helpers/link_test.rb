@@ -1,7 +1,7 @@
 require "test_helper"
 require "ostruct"
 
-module Documently
+module Masthead
   module Resources
     class Template
       module Helpers

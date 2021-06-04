@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resources
     class LayoutTest < TestCase
       test "by default uses the site layout" do

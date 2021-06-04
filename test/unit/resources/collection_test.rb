@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resources
     class CollectionTest < TestCase
       test "#build creates an artifact by building all the members" do

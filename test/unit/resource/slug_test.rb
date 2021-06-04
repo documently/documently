@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resource
     class SlugTest < TestCase
       test "creates a slug from a single-word name by using the name verbatim" do

@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resource
     class PermalinkTest < TestCase
       test "creates a root permalink that is a single slash" do

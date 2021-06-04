@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resource
     class MetadataTest < TestCase
       test "accesses a piece of metadata by its name" do

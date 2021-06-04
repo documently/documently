@@ -1,4 +1,4 @@
-module Documently
+module Masthead
   class TestCase < Minitest::Test
     module Assertions
       def self.included(base)

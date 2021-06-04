@@ -1,6 +1,6 @@
-# documently
+# Masthead
 
-A comprehensive toolkit for building fast websites. documently converts a
+A comprehensive toolkit for building fast websites. Masthead converts a
 directory of HTML templates, plaintext files, and assets into a directory of
 HTML, CSS, and JS files.
 
@@ -16,7 +16,7 @@ HTML, CSS, and JS files.
 * **Enable Accessibility** → Accessibility—a crucial and uncompromisable quality
   of all websites—is enforced at every opportunity
 
-For more details on documently's philosophy and origins, see the [about
+For more details on Masthead's philosophy and origins, see the [about
 page][about].
 
 ## Features
@@ -38,13 +38,13 @@ page][about].
 
 * New to the framework, or looking for a high-level, guided walkthrough? Check
   out the [tutorial][tutorial]
-* Already familiar with documently, or want more in-depth details about each
+* Already familiar with Masthead, or want more in-depth details about each
   topic? Take a look at the [docs][docs]
 * Need the signature for a method or the public interface of a class? See the
   [API][api]
 
-[about]: https://github.com/documently/documently
-[navigate]: https://github.com/documently/documently
-[tutorial]: https://github.com/documently/documently
-[docs]: https://github.com/documently/documently
-[api]: https://github.com/documently/documently
+[about]: https://github.com/masthead/masthead
+[navigate]: https://github.com/masthead/masthead
+[tutorial]: https://github.com/masthead/masthead
+[docs]: https://github.com/masthead/masthead
+[api]: https://github.com/masthead/masthead

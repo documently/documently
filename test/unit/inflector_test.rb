@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   class InflectorTest < TestCase
     test "singularizes a plural word" do
       assert_equal "post", Inflector.singularize("posts")

@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module HTML
     class AttributeSetTest < TestCase
       test "#to_s serializes all the attributes separated by spaces" do

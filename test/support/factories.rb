@@ -1,4 +1,4 @@
-module Documently
+module Masthead
   class TestCase < Minitest::Test
     module Factories
       def create_site(name: "site")

@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Documently
+module Masthead
   module Resources
     class PageTest < TestCase
       test "#build creates a document by rendering the template" do
