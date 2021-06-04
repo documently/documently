@@ -1,39 +1,38 @@
 # documently
 
-A comprehensive framework for building fast websites. documently transforms a
-directory of HTML templates, plaintext files, and assets into a parallel
-directory of HTML, CSS, and JavaScript files. Forget plugins and starter kits,
-documently has everything you need to build blazing fast websites from static
-files.
+A comprehensive toolkit for building fast websites. documently converts a
+directory of HTML templates, plaintext files, and assets into a directory of
+HTML, CSS, and JS files.
 
-## Beliefs
+## Beliefs and Goals
 
-* **Comprehensive** &rarr; Everything you need to build a fairly standard
-  website is included out of the box, without needing to install or configure a
-  set of third-party tools
-* **Opinionated** &rarr; Questions that typically might be left to the developer
-  are instead answered by the framework. Rather than third-parties needing to
-  come up with their own solutions, if something is useful, it ends up in the
-  framework
-* **Minimal Configuration** &rarr; Most things are set up by default to work in
-  a useful, unsurprising way; however, in some cases, breaking out of the
-  typical patterns is possible
-* **For Websites** &rarr; documently is not just another SPA serializer.
-  Instead, it encourages the developer to think in the terms of the web: pages,
-  links, and external assets
+* **Be Comprehensive** → Everything needed to build a website is included out of
+  the box, without needing to install or configure a set of third-party tools
+* **Provide Reasonable Defaults** → Most things are set up by default to work in
+  a helpful, unsurprising way; when needed, these defaults can be broken out of
+  to enable specialized scenarios
+* **Build Fast Websites** → Plain websites are already fast, but optional
+  optimizations are provided to make them even faster
+* **Enable Accessibility** → Accessibility—a crucial and uncompromisable quality
+  of all websites—is enforced at every opportunity
+
+For more details on documently's philosophy and origins, see the [about
+page][about].
 
 ## Features
 
-* An incremental build system that means you never generate more of your site
-  than you need to
-* A [progressive enhancement plugin][supercharge] that makes your fast website
-  *even faster*
-* A build pipeline for documents and assets that includes transpilation,
-  versioning, minification, and other optimizations
-* A directory structure with sensible locations for all kinds of files
-* Support for HTML templates with embedded Ruby snippets
-* Support for transforming Markdown to HTML
-* Template helpers to make generating links and dates easier
+* HTML templates with embedded Ruby to dynamically generate markup
+* Template helpers to make generating elements like links and dates easier
+* Transformation of Markdown to HTML
+* A Ruby API for interacting with content
+* An incremental build system which only regenerates the parts of the website
+  that have changed
+* An optional [progressive enhancement plugin][navigate] for additional speed
+  improvements like link preloading and in-memory page transitions
+* A build pipeline for documents and assets that performs various optimizations
+  like minification and versioning
+* A predefined directory structure with sensible locations for all kinds of
+  files
 
 ## Getting Started
 
@@ -44,7 +43,8 @@ files.
 * Need the signature for a method or the public interface of a class? See the
   [API][api]
 
-[supercharge]: https://github.com/documently/supercharge
+[about]: https://github.com/documently/documently
+[navigate]: https://github.com/documently/documently
 [tutorial]: https://github.com/documently/documently
 [docs]: https://github.com/documently/documently
 [api]: https://github.com/documently/documently
