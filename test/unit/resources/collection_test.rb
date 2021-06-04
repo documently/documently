@@ -21,7 +21,7 @@ module Documently
       test "the permalink is the slug joined to the parent with a trailing slash" do
         collection = create_collection(name: "posts")
 
-        assert_equal "/posts/", collection.permalink.value
+        assert_equal "/posts/", collection.permalink.to_s
       end
 
       test "uses the layout with the singularized name of the collection" do

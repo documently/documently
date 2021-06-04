@@ -57,7 +57,7 @@ module Documently
       test "by default the permalink is the slug joined to the parent" do
         page = create_page(name: "contact_us")
 
-        assert_equal "/contact-us", page.permalink.value
+        assert_equal "/contact-us", page.permalink.to_s
       end
 
       test "when the page is the index of a collection the permalink is the permalink of the indexed collection" do
@@ -65,7 +65,7 @@ module Documently
         create_collection(name: "posts", site: site)
         page = create_page(name: "posts", site: site)
 
-        assert_equal "/posts/", page.permalink.value
+        assert_equal "/posts/", page.permalink.to_s
       end
 
       test "by default uses the layout of the site" do

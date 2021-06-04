@@ -23,7 +23,7 @@ module Documently
       test "the permalink is a single slash" do
         site = create_site
 
-        assert_equal "/", site.permalink.value
+        assert_equal "/", site.permalink.to_s
       end
 
       test "uses the layout named 'main'" do

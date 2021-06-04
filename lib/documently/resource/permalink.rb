@@ -1,8 +1,6 @@
 module Documently
   module Resource
     class Permalink
-      attr_reader :value
-
       def self.root
         new("/")
       end
