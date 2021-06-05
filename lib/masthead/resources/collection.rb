@@ -1,7 +1,9 @@
 module Masthead
   module Resources
     class Collection
-      attr_reader :name, :pages
+      include Enumerable
+
+      attr_reader :name
 
       def initialize(name:, site:, pages: Resource::Repository.empty)
         @name = name
@@ -14,6 +16,14 @@ module Masthead
           name: slug,
           documents: @pages.map(&:build)
         )
+      end
+
+      def each(&block)
+        @pages.each(&block)
+      end
+
+      def <<(page)
+        @pages << page
       end
 
       def title

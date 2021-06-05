@@ -25,7 +25,7 @@ module Masthead
         site.pages << page
 
         if !collection.nil?
-          collection.pages << page
+          collection << page
         end
 
         page
