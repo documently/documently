@@ -14,10 +14,7 @@ module Masthead
       def build
         Artifacts::Document.new(
           name: slug,
-          content: @template.render({
-            site: Site::ViewModel.new(@site),
-            page: Page::ViewModel.new(self)
-          })
+          content: @template.render({site: @site, page: self})
         )
       end
 
@@ -45,6 +42,18 @@ module Masthead
         else
           parent.layout
         end
+      end
+
+      def method_missing(name, *args)
+        if @metadata.include?(name.to_s)
+          @metadata[name.to_s]
+        else
+          super
+        end
+      end
+
+      def respond_to_missing?(name, include_private = false)
+        @metadata.include?(name.to_s) || super
       end
 
       private

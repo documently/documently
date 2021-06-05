@@ -33,6 +33,24 @@ module Masthead
       def layout
         @layouts.find("main")
       end
+
+      def method_missing(name, *args)
+        if include_member?(name.to_s)
+          find_member(name.to_s)
+        else
+          super
+        end
+      end
+
+      private
+
+      def find_member(name)
+        @collections.find(name) || @pages.find(name)
+      end
+
+      def include_member?(name)
+        @collections.include?(name) || @pages.include?(name)
+      end
     end
   end
 end

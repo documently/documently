@@ -32,6 +32,28 @@ module Masthead
 
         assert_equal main_layout, site.layout
       end
+
+      test "acceses pages by their name with methods" do
+        site = create_site
+        about_page = create_page(name: "about", site: site)
+
+        assert_equal about_page, site.about
+      end
+
+      test "acceses collections by their name with methods" do
+        site = create_site
+        posts = create_collection(name: "posts", site: site)
+
+        assert_equal posts, site.posts
+      end
+
+      test "prefers to access a collection over a page with the same name" do
+        site = create_site
+        posts_collection = create_collection(name: "posts", site: site)
+        create_page(name: "posts", site: site)
+
+        assert_equal posts_collection, site.posts
+      end
     end
   end
 end

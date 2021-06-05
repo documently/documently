@@ -16,7 +16,7 @@ module Masthead
         assert_equal "<p>content</p>\n", document.content
       end
 
-      test "#build passes the site and the page view models to the template as assigns" do
+      test "#build passes the site and the page to the template as assigns" do
         site = create_site(name: "blog")
         page = create_page(
           name: "about",
@@ -94,6 +94,14 @@ module Masthead
         )
 
         assert_equal custom_layout, page.layout
+      end
+
+      test "accesses metadata with methods" do
+        page = create_page(
+          metadata: Resource::Metadata.new({"author" => "Liam Egan"})
+        )
+
+        assert_equal "Liam Egan", page.author
       end
     end
   end
