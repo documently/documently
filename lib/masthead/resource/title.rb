@@ -1,6 +1,6 @@
 module Masthead
   module Resource
-    class Title
+    module Title
       def self.for(name)
         name.split("_").map(&:capitalize).join(" ")
       end

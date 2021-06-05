@@ -1,6 +1,6 @@
 module Masthead
   module Resource
-    class Slug
+    module Slug
       def self.for(name)
         name.tr("_", "-")
       end
